@@ -20,15 +20,20 @@
 
     <v-menu v-if="showToolbarMenu">
       <template v-slot:activator="{ props }">
+        <!-- v-on="tooltipMenuEventHandlers"  -->
         <v-btn
           v-bind="props"
           v-show="!isUiMinimized"
-          v-on="tooltipMenuEventHandlers"
+          @click="toggleSidebar" 
           class="menu"
           icon="menu"
           size="small"
           aria-label="menu options"
-        ></v-btn>
+        >
+          <span class="v-btn__content">
+            <i class="material-icons">menu</i>
+          </span>
+        </v-btn>
       </template>
 
       <v-list>
@@ -376,6 +381,20 @@ export default {
     },
   },
   methods: {
+    toggleSidebar() {
+      console.log('Menu button clicked');  // For debugging, to see if this logs
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('menu-overlay');
+      const isOpen = sidebar.classList.contains('open');
+
+      if (isOpen) {
+        sidebar.classList.remove('open');
+        overlay.style.display = 'none';
+      } else {
+        sidebar.classList.add('open');
+        overlay.style.display = 'block';
+      }
+    },
     setLocale(l) {
       const a = this.$store.state.config.lex.v2BotLocaleId.split(',');
       const revised = [];
@@ -500,6 +519,7 @@ export default {
       }
       this.shouldShowHelpTooltip = false;
     },
+    
     onPrev() {
       if (this.prevNav) {
         this.mouseOverPrev();

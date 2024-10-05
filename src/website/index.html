@@ -14,7 +14,7 @@
         font-src 'self' fonts.gstatic.com; 
         upgrade-insecure-requests;">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-    <title>LexWebUi Demo</title>
+    <title>QUT Chatbot</title>
     <!-- empty favicon to avoid 404 -->
     <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
 
@@ -27,8 +27,56 @@
     <%= htmlWebpackPlugin.tags.headTags %>
 
     <link rel="stylesheet" href="./custom-chatbot-style.css">
+    <style>
+      /* Sidebar for conversation history */
+      #sidebar {
+        position: fixed;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #f4f4f4;
+        border-right: 1px solid #ddd;
+        transition: 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+        padding: 20px;
+      }
+
+      #sidebar.open {
+        left: 0; /* When open, shift to be visible */
+      }
+
+      /* List styling for conversation history */
+      #conversation-list {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 10px 0;
+      }
+
+      #conversation-list li {
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #ddd;
+      }
+
+      /* Overlay to darken screen when menu is open */
+      #menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 999;
+      }
+    
+    </style>
   </head>
+  
   <body>
+  
+
     <!--
       Loader script.
       Creates a global variable named ChatbotUiLoader.
@@ -40,6 +88,18 @@
     -->
     <%= htmlWebpackPlugin.tags.bodyTags %>
 
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+      <h2>Conversation History</h2>
+      <ul>
+        <li>Conversation 1</li>
+        <li>Conversation 2</li>
+        <!-- Add more conversation items here -->
+      </ul>
+    </div>
+
+    <!-- Overlay for Sidebar -->
+    <div id="menu-overlay" class="menu-overlay" style="display: none;"></div>
     <!--
       The following script instantiate the full page loader and
       calls its load function.

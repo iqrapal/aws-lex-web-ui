@@ -89,3 +89,17 @@ button.min-button {
 .message-button {
     display: none;
 }
+
+.message-text {color: #000000 !important;}
+
+.message-list-container {background-color: white !important; background-image: url('qut-logo.png'); background-repeat: no-repeat; background-position: center; background-size: auto; height: auto;}
+
+/* .v-btn.v-btn--icon.input-button i.material-icons[aria-hidden="true"] {display: none;} */
+
+/* .v-btn.v-btn--icon.input-button .v-btn__content::before {content: '\e163'; font-family: 'Material Icons'; font-size: 24px; color: #00407a; display: inline-block; vertical-align: middle;} */
+
+.bg-red {background-color: #00407a !important;}
+
+.message-human .message-bubble {background-color: #ecebeb !important;}
+
+.message-bot .message-bubble {background-color: #ecebeb !important;}

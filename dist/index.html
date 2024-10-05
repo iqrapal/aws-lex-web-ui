@@ -1,49 +1,42 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <!-- Frame and Image source CSP is controlled by Cloudfront headers to allow customization via Cloudformation -->
-    <meta http-equiv="Content-Security-Policy" 
-      content="default-src 'self' blob: data:; 
-        worker-src blob: data:;
-        img-src * data:;
-        frame-src *;
-        script-src 'self' 'unsafe-eval';
-        style-src 'self' 'unsafe-inline';
-        connect-src 'self' wss://*.amazonaws.com  *.amazonaws.com *.amazoncognito.com;
-        font-src 'self' fonts.gstatic.com; 
-        upgrade-insecure-requests;">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-    <title>LexWebUi Demo</title>
-    <!-- empty favicon to avoid 404 -->
-    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self' blob: data:; worker-src blob: data:; img-src * data:; frame-src *; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' wss://*.amazonaws.com *.amazonaws.com *.amazoncognito.com; font-src 'self' fonts.gstatic.com; upgrade-insecure-requests;"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"><title>QUT Chatbot</title><link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon"/><link href="lex-web-ui-loader.min.css" rel="stylesheet"><link rel="stylesheet" href="./custom-chatbot-style.css"><style>/* Sidebar for conversation history */
+      #sidebar {
+        position: fixed;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #f4f4f4;
+        border-right: 1px solid #ddd;
+        transition: 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+        padding: 20px;
+      }
 
-    <!--
-      Webpack injects the loader css tag here.
-      if you want to include it manually in your app,
-      replace the webpack tag with:
-      <link href="lex-web-ui-loader.min.css" rel="stylesheet">
-    -->
-    <link href="lex-web-ui-loader.css" rel="stylesheet">
+      #sidebar.open {
+        left: 0; /* When open, shift to be visible */
+      }
 
-    <link rel="stylesheet" href="./custom-chatbot-style.css">
-  </head>
-  <body>
-    <!--
-      Loader script.
-      Creates a global variable named ChatbotUiLoader.
+      /* List styling for conversation history */
+      #conversation-list {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 10px 0;
+      }
 
-      Webpack injects the loader script tag here.
-      if you want to include it manually in your app,
-      replace the webpack tag with:
-      <script src="./lex-web-ui-loader.min.js"></script>
-    -->
-    <script src="lex-web-ui-loader.js"></script>
+      #conversation-list li {
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #ddd;
+      }
 
-    <!--
-      The following script instantiate the full page loader and
-      calls its load function.
-    -->
-    <script src="./initiate-loader.js"></script>
-  </body>
-</html>
+      /* Overlay to darken screen when menu is open */
+      #menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 999;
+      }</style></head><body><script src="lex-web-ui-loader.min.js"></script><div id="sidebar" class="sidebar"><h2>Conversation History</h2><ul><li>Conversation 1</li><li>Conversation 2</li></ul></div><div id="menu-overlay" class="menu-overlay" style="display: none;"></div><script src="./initiate-loader.js"></script></body></html>

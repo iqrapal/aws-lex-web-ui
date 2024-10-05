@@ -17,8 +17,8 @@
   },
   "ui": {
     "parentOrigin": "http://localhost:8080",
-    "pageTitle": "Order Flowers Bot",
-    "toolbarTitle": "Order Flowers"
+    "pageTitle": "QUT Chabot",
+    "toolbarTitle": "QUT Chabot"
   },
   "recorder": {
     "preset": "speech_recognition"

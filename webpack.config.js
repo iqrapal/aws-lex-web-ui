@@ -158,16 +158,16 @@ module.exports = (env) => {
               to: distDir,
             },
             // copy lex-web-ui library
-            {
-              from: getAssetPath(path.join(basePath, 'lex-web-ui/dist/bundle/**/*'), assetsDir),
-              to: path.resolve(distDir, '[path][name][ext]'),
-              globOptions: {
-                ignore: [
-                  "**/*.html",
-                  "**.*.txt",
-                ],
-              },
-            },
+            // {
+            //   from: getAssetPath(path.join(basePath, 'lex-web-ui/dist/bundle/**/*'), assetsDir),
+            //   to: path.resolve(distDir, '[path][name][ext]'),
+            //   globOptions: {
+            //     ignore: [
+            //       "**/*.html",
+            //       "**.*.txt",
+            //     ],
+            //   },
+            // },
           ]
         }
       ),

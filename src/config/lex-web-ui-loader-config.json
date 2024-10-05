@@ -1,15 +1,84 @@
 {
+  "region": "ap-southeast-2",
+  "cognito": {
+    "poolId": "ap-southeast-2:d3a042f5-8ac7-434b-ad5c-4cde1bb02697",
+    "appUserPoolClientId": "7h841h27etm9m5n88t9c9tgn5v",
+    "appUserPoolName": "ap-southeast-2_6gkpsdnUJ",
+    "appDomainName": "qutkchatbotkvckidentitypoolconfigkqidsebagj421253898705.auth.ap-southeast-2.amazoncognito.com",
+    "aws_cognito_region": "ap-southeast-2",
+    "region": "ap-southeast-2"
+  },
   "connect": {
     "contactFlowId": "",
     "instanceId": "",
     "apiGatewayEndpoint": "",
-    "promptForNameMessage": "",
-    "waitingForAgentMessage": "",
-    "waitingForAgentMessageIntervalSeconds": "",
-    "agentJoinedMessage": "",
-    "agentLeftMessage": "",
-    "chatEndedMessage": "",
-    "attachChatTranscript": "",
-    "transcriptMessageDelayInMsec": ""
+    "promptForNameMessage": "Before starting a live chat, please tell me your name?",
+    "waitingForAgentMessage": "Thanks for waiting. An agent will be with you when available.",
+    "waitingForAgentMessageIntervalSeconds": "60",
+    "agentJoinedMessage": "{Agent} has joined.",
+    "agentLeftMessage": "{Agent} has left.",
+    "chatEndedMessage": "Chat ended.",
+    "attachChatTranscript": "false",
+    "liveChatTerms": "live chat",
+    "transcriptMessageDelayInMsec": "150"
+  },
+  "lex": {
+    "v2BotId": "JFGC1UV9PM",
+    "v2BotAliasId": "55E2VKU5QY",
+    "v2BotLocaleId": "en_AU",
+    "botName": "JFGC1UV9PM",
+    "botAlias": "$LATEST",
+    "initialText": "I am QUT Chabot, how can I help?",
+    "initialSpeechInstruction": "Say 'QUT' to get started.",
+    "initialUtterance": "",
+    "reInitSessionAttributesOnRestart": false,
+    "region": "ap-southeast-2",
+    "retryOnLexPostTextTimeout": "false",
+    "retryCountPostTextTimeout": "1",
+    "allowStreamingResponses": true,
+    "streamingWebSocketEndpoint": "wss://lexv2-websocket.ap-southeast-2.amazonaws.com",
+    "streamingDynamoDbTable": ""
+  },
+  "ui": {
+    "parentOrigin": "https://d1fl0qhzy383e2.cloudfront.net",
+    "toolbarTitle": "QUT Chabot",
+    "toolbarLogo": "",
+    "toolbarStartLiveChatLabel": "Start Live Chat",
+    "toolbarEndLiveChatLabel": "End Live Chat",
+    "toolbarStartLiveChatIcon": "people_alt",
+    "toolbarEndLiveChatIcon": "call_end",
+    "positiveFeedbackIntent": "",
+    "negativeFeedbackIntent": "",
+    "helpIntent": "Help",
+    "minButtonContent": "",
+    "avatarImageUrl": "",
+    "backButton": false,
+    "messageMenu": false,
+    "hideButtonMessageBubble": false,
+    "enableLogin": false,
+    "enableLiveChat": false,
+    "forceLogin": false,
+    "enableUpload": false,
+    "uploadS3BucketName": "",
+    "AllowSuperDangerousHTMLInMessage": true,
+    "shouldDisplayResponseCardTitle": false,
+    "saveHistory": true,
+    "helpContent": {},
+    "enableSFX": false,
+    "hideInputFieldsForButtonResponse": false,
+    "pushInitialTextOnRestart": false,
+    "directFocusToBotInput": false,
+    "showDialogStateIcon": false
+  },
+  "polly": {
+    "voiceId": "Salli"
+  },
+  "recorder": {
+    "preset": "speech_recognition"
+  },
+  "iframe": {
+    "iframeOrigin": "https://d1fl0qhzy383e2.cloudfront.net",
+    "shouldLoadIframeMinimized": false,
+    "iframeSrcPath": "/index.html#/?lexWebUiEmbed=true"
   }
 }
